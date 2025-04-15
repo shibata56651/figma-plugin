@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Figma Data Importer</title>
+  <script>
+    function loadData() {
+      // const jsonUrl = document.getElementById("jsonUrl").value;
+      // parent.postMessage({ pluginMessage: { type: "load-data", jsonUrl } }, "*");
+
+      const url = document.getElementById("jsonUrl").value;
+        parent.postMessage({ pluginMessage: { type: "apply", url } }, "*");
+    }
+
+    function exportPng() {
+      parent.postMessage({ pluginMessage: { type: "export-png" } }, "*");
+    }
+  </script>
+</head>
+<body>
+  <h3>データを適用</h3>
+  <input type="text" id="jsonUrl" placeholder="JSONのURLを入力">
+  <button onclick="loadData()">適用</button>
+  <br><br>
+  <button onclick="exportPng()">PNGを書き出し</button>
+</body>
+</html>
