@@ -71,6 +71,9 @@ async function applyTemplate(item: any) {
         const priceValue = t.value;
         t.node.characters = priceValue;
 
+        // テキストノードの自動リサイズを設定（段落ちを防ぐ）
+        t.node.textAutoResize = "WIDTH_AND_HEIGHT";
+
         const yenIndex = priceValue.indexOf("円");
         if (yenIndex !== -1) {
           const fontSemiBold: FontName = { family: "Roboto", style: "SemiBold" };
